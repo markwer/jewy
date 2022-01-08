@@ -308,7 +308,7 @@ div#swiper_container {
     opacity:1;
     -ms-filter:none;
     filter:none;
-    background:var(--btn-bg);
+    background:rgb(255, 113, 66);
     height:30px
 }
 @media screen and (max-width:600px) {
