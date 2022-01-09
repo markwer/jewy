@@ -4,15 +4,13 @@ function getLocalTime(nS) {
 function getdddata(){
     var bbsurl = "https://shuo.vercel.app/api?q=20"
 
-    var httpRequest = new XMLHttpRequest();//µÚÒ»²½£º½¨Á¢ËùĞèµÄ¶ÔÏó
-    httpRequest.open('GET', bbsurl, true);//µÚ¶ş²½£º´ò¿ªÁ¬½Ó  ½«ÇëÇó²ÎÊıĞ´ÔÚurlÖĞ  ps:"./Ptest.php?name=test&nameone=testone"
-    httpRequest.send();//µÚÈı²½£º·¢ËÍÇëÇó  ½«ÇëÇó²ÎÊıĞ´ÔÚURLÖĞ
-    /**
-     * »ñÈ¡Êı¾İºóµÄ´¦Àí³ÌĞò
-     */
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.open('GET', bbsurl, true);
+    httpRequest.send();
+   
     httpRequest.onreadystatechange = function () {
         if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-            var json = httpRequest.responseText;//»ñÈ¡µ½json×Ö·û´®£¬»¹Ğè½âÎö
+            var json = httpRequest.responseText;
             var obj = eval('(' + json + ')');
             // console.log(obj.data)
             const bbArray = obj.map(e => {
@@ -40,7 +38,7 @@ var generateddHtml = array => {
                 from_icon = '<i class="fas fa-mobile-alt"></i>';
             }else if (array[i].from == "MacBook"){
                 from_icon = '<i class="fas fa-laptop"></i>';
-            }else if (array[i].from == "Î¢ĞÅ¹«ÖÚºÅ"){
+            }else if (array[i].from == "å¾®ä¿¡å…¬ä¼—å·"){
                 from_icon = '<i class="fab fa-weixin" style="font-size: 0.6rem"></i>';
             }else{
                 from_icon = '<i class="fas fa-tools"></i>';
@@ -73,7 +71,7 @@ function urlToLink(str) {
         return '<a href="' + imgurl + '"><img src="' + imgurl + '" /></a>';
     });
     str =str.replace(re,function (website) {
-        return " <a href='" + website + "'rel='noopener' target='_blank'>¨KÁ´½Ó¨L</a> ";
+        return " <a href='" + website + "'rel='noopener' target='_blank'>â†˜é“¾æ¥â†™</a> ";
     });
     str = qqWechatEmotionParser(str)
     return str;
